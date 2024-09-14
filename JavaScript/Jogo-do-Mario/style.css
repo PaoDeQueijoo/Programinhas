@@ -1,0 +1,82 @@
+/*Preset padrão pra página toda*/ 
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.game-board {
+    width: 100%;
+    height: 725px;
+    border-bottom: 30px solid green;
+    margin: 0 auto; /* Centralizar a div */
+    position: relative;
+    overflow: hidden; /* Para não aparecer o que estiver fora da div */
+    background: linear-gradient(rgb(94, 158, 255), rgb(170, 214, 255));
+}
+
+.pipe {
+
+    position: absolute; /* Para nenhuma imagem interferir no comportamento da outra */
+    bottom: 0; /* Deixar o pipe lá embaixo */
+    width: 80px; /* Tamanho */
+    animation: pipe-animation 1.5s infinite linear; /* Sincronizando a animação criada ao pipe, linear para ser constante*/
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0; /* Altura = 0 */
+}
+
+.jump {
+    animation: jump 500ms ease-out; /* Cair lentamente, infinitamente */
+}
+
+.clouds {
+    position: absolute;
+    width: 500px;
+    animation: clouds-animation 10s infinite linear;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0; /* Início */
+    } 
+
+    40% {
+        bottom: 180px; 
+    }
+
+    50% {
+        bottom: 180px; /* Meio */
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0; /* Fim */
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
